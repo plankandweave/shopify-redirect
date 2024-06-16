@@ -9,12 +9,19 @@ export default async function handler(req, res) {
     const data = await response.json();
     const country = data.country;
 
+    const blockedCountries = ['PK', 'CN', 'HK', 'KP', 'KR'];
+
+    if (blockedCountries.includes(country)) {
+      res.status(403).send('Access Denied');
+      return;
+    }
+
     if (country === 'US') {
-      res.redirect('https://www.zyvorah.com'); // Redirect to main page for US
+      res.redirect('https://us.zyvorah.com');
     } else if (country === 'IN') {
-      res.redirect('https://www.zyvorah.com'); // Redirect to main page for IN
+      res.redirect('https://in.zyvorah.com');
     } else {
-      res.redirect('https://www.zyvorah.com'); // Redirect to main page for others
+      res.redirect('https://www.zyvorah.com');
     }
   } catch (error) {
     console.error('Error fetching IP info:', error);
