@@ -10,14 +10,14 @@ export default async function handler(req, res) {
     const country = data.country;
 
     if (country === 'US') {
-      res.redirect('https://us.yourstore.com');
+      res.redirect('https://www.zyvorah.com/us');
     } else if (country === 'IN') {
-      res.redirect('https://in.yourstore.com');
+      res.redirect('https://www.zyvorah.com/in');
     } else {
-      res.redirect('https://www.yourstore.com');
+      res.redirect('https://www.zyvorah.com');
     }
   } catch (error) {
     console.error('Error fetching IP info:', error);
-    res.redirect('https://www.yourstore.com');
+    res.redirect('https://www.zyvorah.com');
   }
 }
